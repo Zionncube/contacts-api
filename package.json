@@ -19,6 +19,7 @@
   "homepage": "https://github.com/Zionncube/contacts-api#readme",
   "dependencies": {
     "express": "^5.1.0",
-    "mongodb": "^6.19.0"
+    "mongodb": "^6.19.0",
+    "mongoose": "^8.18.0"
   }
 }
