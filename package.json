@@ -1,26 +1,15 @@
 {
   "name": "contacts-api",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "API for managing contacts",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "dev": "node server.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Zionncube/contacts-api.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Zionncube/contacts-api/issues"
-  },
-  "homepage": "https://github.com/Zionncube/contacts-api#readme",
   "dependencies": {
-    "dotenv": "^17.2.2",
-    "express": "^5.1.0",
-    "mongodb": "^6.19.0",
-    "mongoose": "^8.18.0"
+    "express": "^4.18.2",
+    "mongoose": "^8.0.0",
+    "dotenv": "^16.3.1"
   }
 }
