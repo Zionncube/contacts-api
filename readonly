@@ -1,0 +1,93 @@
+🔥 Nice! Ngizokukhombisa i-**step-by-step** indlela yokuhlola i-REST API yakho ku-**Thunder Client** (noma i-Postman, kodwa Thunder ilula kakhulu ngoba isemaphakathi ne-VS Code).
+
+---
+
+## ✅ 1. Qala i-server yakho
+
+Qinisekisa ukuthi usebenzisa i-command:
+
+```bash
+node server.js
+```
+
+Uma yonke into ihamba kahle uzobona:
+
+```
+✅ Connected to MongoDB
+🚀 Server running on port 3000
+```
+
+---
+
+## ✅ 2. Hlola i-endpoints ku-Thunder Client
+
+### ➡️ (a) **GET all contacts**
+
+* Method: `GET`
+* URL: `http://localhost:3000/api/contacts`
+* Kulindeleke ukuthi uphinde uthole i-JSON yawo wonke ama-contacts akhona ku-DB yakho.
+
+---
+
+### ➡️ (b) **POST create contact**
+
+* Method: `POST`
+* URL: `http://localhost:3000/api/contacts`
+* Body → khetha **JSON** bese ufaka:
+
+```json
+{
+  "name": "Happiness Ncube",
+  "email": "happiness@gmail.com",
+  "phone": "0678731152"
+}
+```
+
+* Uma kuyaphumelela, uzothola i-response enento oyifakile, kanye ne-`_id`.
+
+---
+
+### ➡️ (c) **GET one contact by ID**
+
+* Method: `GET`
+* URL: `http://localhost:3000/api/contacts/<ID>`
+  (thatha i-`_id` oyitholile ku-POST step).
+
+---
+
+### ➡️ (d) **PUT update contact**
+
+* Method: `PUT`
+* URL: `http://localhost:3000/api/contacts/<ID>`
+* Body:
+
+```json
+{
+  "name": "Happiness Updated",
+  "email": "happiness_updated@gmail.com",
+  "phone": "0123456789"
+}
+```
+
+---
+
+### ➡️ (e) **DELETE contact**
+
+* Method: `DELETE`
+* URL: `http://localhost:3000/api/contacts/<ID>`
+* Uzothola impendulo:
+
+```json
+{ "message": "Contact deleted" }
+```
+
+---
+
+## 💡 Tips
+
+* Uma usudinga ukuyihambisa ku-**Render**, sebenzisa `https://<your-app-name>.onrender.com/api/contacts` esikhundleni se-`http://localhost:3000/api/contacts`.
+* Qinisekisa ukuthi `MONGO_URI` yakho ku-`.env` isethwe kahle.
+
+---
+
+Ngabe ufuna ngikwenzele **screenshot-style walkthrough** (njengokuthi ungachofoza kuphi ku-Thunder Client ku-VS Code) ukuze kube lula uku-follow?
