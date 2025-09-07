@@ -1,7 +1,4 @@
-# Node modules
-node_modules/
-
-# Environment variables
+node_modules
 .env
 
 # Logs
@@ -15,3 +12,4 @@ Thumbs.db
 
 # Optional: VS Code settings
 .vscode/
+
