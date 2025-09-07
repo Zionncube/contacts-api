@@ -23,22 +23,26 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// POST (create new contact)
-router.post('/', async (req, res) => {
-  try {
-    const contact = new Contact({
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
-      email: req.body.email,
-      favoriteColor: req.body.favoriteColor,
-      birthday: req.body.birthday
-    });
+// ✅ POST - create a new contact
+router.post("/", async (req, res) => {
+    try {
+        const { firstName, lastName, email, favoriteColor, birthday } = req.body;
 
-    const newContact = await contact.save();
-    res.status(201).json(newContact);
-  } catch (err) {
-    res.status(400).json({ error: err.message });
-  }
+        // create new contact
+        const newContact = new Contact({
+            firstName,
+            lastName,
+            email,
+            favoriteColor,
+            birthday
+        });
+
+        // save to DB
+        const savedContact = await newContact.save();
+        res.status(201).json(savedContact);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
 });
 
 // PUT (update contact)
