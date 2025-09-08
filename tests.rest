@@ -1,39 +1,40 @@
 ### Get All Contacts
-GET http://localhost:10000/contacts
-Content-Type: application/json
+GET http://localhost:3000/contacts
 
 ### Get Single Contact
 GET http://localhost:3000/contacts/1
-Content-Type: application/json
 
 ### Create New Contact
 POST http://localhost:3000/contacts
 Content-Type: application/json
 
 {
-  "firstName": "Alice",
-  "lastName": "Johnson",
-  "email": "alice.johnson@example.com",
-  "favoriteColor": "Purple",
-  "birthday": "1992-03-15"
+  "firstName": "Test",
+  "lastName": "User",
+  "email": "test@example.com",
+  "favoriteColor": "Green",
+  "birthday": "1995-05-15"
 }
 
 ### Update Contact
-PUT http://localhost:3000/contacts/3
+PUT http://localhost:3000/contacts/1
 Content-Type: application/json
 
 {
-  "firstName": "Alice",
-  "lastName": "Johnson",
-  "email": "alice.johnson.updated@example.com",
-  "favoriteColor": "Blue",
-  "birthday": "1992-03-15"
+  "firstName": "Updated",
+  "lastName": "Name",
+  "email": "updated@example.com",
+  "favoriteColor": "Red",
+  "birthday": "1990-01-01"
 }
 
 ### Delete Contact
-DELETE http://localhost:3000/contacts/3
-Content-Type: application/json
+DELETE http://localhost:3000/contacts/1
 
 https://youtu.be/R-TeR_IT21A
 https://contacts-api-8iqq.onrender.com
 https://github.com/Zionncube/contacts-api.git
+
+
+// Import models
+const Contact = require('./models/Contact');
