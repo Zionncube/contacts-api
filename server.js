@@ -11,22 +11,23 @@ app.use(express.json());
 // In-memory storage for testing (since we're focusing on API routes first)
 let contacts = [
   {
-    id: 1,
-    firstName: "John",
-    lastName: "Doe",
-    email: "john@example.com",
-    favoriteColor: "Blue",
-    birthday: "1990-01-01"
+    "id": 1,
+    "firstName": "Happiness",
+    "lastName": "Ncube",
+    "email": "happiness@gmail.com",
+    "favoriteColor": "Blue",
+    "birthday": "2000-01-01"
   },
   {
-    id: 2,
-    firstName: "Jane",
-    lastName: "Smith",
-    email: "jane@example.com",
-    favoriteColor: "Green",
-    birthday: "1985-05-15"
+    "id": 2,
+    "firstName": "Thando",
+    "lastName": "Ncube",
+    "email": "thando@gmail.com",
+    "favoriteColor": "Pink",
+    "birthday": "2014-03-07"
   }
 ];
+
 
 // Routes
 
