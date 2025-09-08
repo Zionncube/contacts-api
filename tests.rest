@@ -33,3 +33,7 @@ Content-Type: application/json
 ### Delete Contact
 DELETE http://localhost:3000/contacts/3
 Content-Type: application/json
+
+https://youtu.be/R-TeR_IT21A
+https://contacts-api-8iqq.onrender.com
+https://github.com/Zionncube/contacts-api.git
