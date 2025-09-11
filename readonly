@@ -90,3 +90,27 @@ Ngabe ufuna ngikwenzele **screenshot-style walkthrough** (njengokuthi ungachofoz
 
 MONGO_URI=mongodb+srv://mercymsawenkosi_db_user:Zionzion@cluster0.qoiu33r.mongodb.net/?retryWrites=true&w=majority
 
+contacts-api/
+├── controllers/
+│   └── contacts.js      # logic for CRUD operations
+├── routes/
+│   └── contacts.js      # defines endpoints (GET, POST, PUT, DELETE)
+├── db/
+│   └── connect.js       # MongoDB connection file
+├── swagger.js           # swagger setup
+├── server.js            # main entry point
+├── package.json
+├── .env
+└── .rest                # rest client tests
+
+
+Deployment to Render
+
+Push code to GitHub.
+
+Go to Render → New Web Service → connect repo.
+
+Add environment variable MONGODB_URI in Render settings.
+
+Render will give you a URL like:
+

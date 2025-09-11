@@ -38,3 +38,54 @@ https://github.com/Zionncube/contacts-api.git
 
 // Import models
 const Contact = require('./models/Contact');
+
+{
+  "success": true,
+  "count": 3,
+  "data": [
+    {
+      "_id": "68bdd48e57686bbf7dedb1af",
+      "firstName": "Happiness",
+      "lastName": "Ncube",
+      "email": "happiness@gmail.com",
+      "favoriteColor": "Blue",
+      "birthday": "2000-01-01T00:00:00.000Z"
+    },
+    {
+      "_id": "68bdd48e57686bbf7dedb1b0",
+      "firstName": "Happiness",
+      "lastName": "Ncube",
+      "email": "thando@gmail.com",
+      "favoriteColor": "Pink",
+      "birthday": "2014-03-07T00:00:00.000Z"
+    },
+    {
+      "_id": "68bdd48e57686bbf7dedb1b1",
+      "firstName": "Happiness",
+      "lastName": "Ncube",
+      "email": "zama@gmail.com",
+      "favoriteColor": "Red",
+      "birthday": "1999-03-05T00:00:00.000Z"
+    }
+  ]
+}
+
+https://youtu.be/KSuPWIzxUlo
+https://github.com/Zionncube/contacts-api.git
+https://contacts-api-8iqq.onrender.com
+
+{
+  "success": true,
+  "message": "Contact created successfully",
+  "data": {
+    "firstName": "Test",
+    "lastName": "User",
+    "email": "test@example.com",
+    "favoriteColor": "Green",
+    "birthday": "1995-05-15T00:00:00.000Z",
+    "_id": "68c2ab24d8fabb0972d3b36d",
+    "createdAt": "2025-09-11T10:57:40.891Z",
+    "updatedAt": "2025-09-11T10:57:40.891Z",
+    "__v": 0
+  }
+}
