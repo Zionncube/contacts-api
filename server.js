@@ -2,11 +2,18 @@ const express = require("express");
 const mongoose = require("mongoose");
 require("dotenv").config();
 
+// Swagger
+const swaggerUi = require("swagger-ui-express");
+const swaggerSpec = require("./swagger");
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(express.json());
+
+// Swagger Docs route
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // MongoDB Connection
 const MONGODB_URI = process.env.MONGODB_URI;
@@ -40,6 +47,7 @@ mongoose
     process.exit(1);
   });
 
+
 // Routes
 
 // GET / - Home route
@@ -51,6 +59,15 @@ app.get("/", (req, res) => {
 });
 
 // GET /contacts - Get all contacts
+/**
+ * @swagger
+ * /contacts:
+ *   get:
+ *     summary: Get all contacts
+ *     responses:
+ *       200:
+ *         description: A list of contacts
+ */
 app.get("/contacts", async (req, res) => {
   try {
     const contacts = await Contact.find();
@@ -69,6 +86,24 @@ app.get("/contacts", async (req, res) => {
 });
 
 // GET /contacts/:id - Get single contact by ID
+/**
+ * @swagger
+ * /contacts/{id}:
+ *   get:
+ *     summary: Get a single contact by ID
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: The contact ID
+ *     responses:
+ *       200:
+ *         description: A single contact
+ *       404:
+ *         description: Contact not found
+ */
 app.get("/contacts/:id", async (req, res) => {
   try {
     const contact = await Contact.findById(req.params.id);
@@ -94,6 +129,35 @@ app.get("/contacts/:id", async (req, res) => {
 });
 
 // POST /contacts - Create new contact
+/**
+ * @swagger
+ * /contacts:
+ *   post:
+ *     summary: add a single contact
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               firstName:
+ *                 type: string
+ *               lastName:
+ *                 type: string
+ *               email:
+ *                 type: string
+ *               favoriteColor:
+ *                 type: string
+ *               birthday:
+ *                 type: string
+ *                 format: date
+ *     responses:
+ *       201:
+ *         description: Contact created successfully
+ *       400:
+ *         description: Invalid request
+ */
 app.post("/contacts", async (req, res) => {
   try {
     const { firstName, lastName, email, favoriteColor, birthday } = req.body;
@@ -137,6 +201,24 @@ app.listen(PORT, () => {
 });
 
 // PUT /contacts/:id - Update a contact
+/**
+ * @swagger
+ * /contacts/{id}:
+ *   put:
+ *     summary: Update a single contact by ID
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: The contact ID
+ *     responses:
+ *       200:
+ *         description: A single contact
+ *       404:
+ *         description: Contact not found
+ */
 app.put("/contacts/:id", async (req, res) => {
   try {
     const { firstName, lastName, email, favoriteColor, birthday } = req.body;
@@ -175,6 +257,24 @@ app.put("/contacts/:id", async (req, res) => {
 });
 
 // DELETE /contacts/:id - Delete a contact
+/**
+ * @swagger
+ * /contacts/{id}:
+ *   delete:
+ *     summary: Delete a single contact by ID
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: The contact ID
+ *     responses:
+ *       200:
+ *         description: A single contact
+ *       404:
+ *         description: Contact not found
+ */
 app.delete("/contacts/:id", async (req, res) => {
   try {
     const deletedContact = await Contact.findByIdAndDelete(req.params.id);
