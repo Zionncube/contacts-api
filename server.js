@@ -200,40 +200,47 @@ app.listen(PORT, () => {
   console.log(`📍 Visit http://localhost:${PORT} to test the API`);
 });
 
-// Put /contacts - Update new contact
+// PUT /contacts/{id} - Update a contact
 /**
  * @swagger
  * /contacts/{id}:
  *   put:
- *     summary: update a single contact
- *    parameters:
- *     requestid:
+ *     summary: Update a single contact
+ *     description: Update the specified contact by ID.
+ *     parameters:
  *       - in: path
  *         name: id
- *         requestBody:
- *            required: true
- *            content:
- *               application/json:
- *                schema:
- *                   type: object
- *                      properties:
- *                          firstName:
- *                             type: string
- *                          lastName:
- *                             type: string
- *                          email:
- *                             type: string
- *                          favoriteColor:
- *                             type: string
- *                          birthday:
- *                             type: string
- *                          format: date
- *               responses:
- *              201:
- *               description: Contact updated successfully
- *              400:
- *               description: Invalid request
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: The contact ID to update
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               firstName:
+ *                 type: string
+ *               lastName:
+ *                 type: string
+ *               email:
+ *                 type: string
+ *               favoriteColor:
+ *                 type: string
+ *               birthday:
+ *                 type: string
+ *                 format: date
+ *     responses:
+ *       200:
+ *         description: Contact updated successfully
+ *       400:
+ *         description: Invalid request
+ *       404:
+ *         description: Contact not found
  */
+
 app.put("/contacts/:id", async (req, res) => {
   try {
     const { firstName, lastName, email, favoriteColor, birthday } = req.body;
