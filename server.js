@@ -203,7 +203,7 @@ app.listen(PORT, () => {
 // Put /contacts - Update new contact
 /**
  * @swagger
- * /contacts:
+ * /contacts/{id}:
  *   put:
  *     summary: update a single contact
  *     requestBody:
