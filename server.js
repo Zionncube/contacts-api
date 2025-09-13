@@ -200,24 +200,35 @@ app.listen(PORT, () => {
   console.log(`📍 Visit http://localhost:${PORT} to test the API`);
 });
 
-// PUT /contacts/:id - Update a contact
+// Put /contacts - Update new contact
 /**
  * @swagger
- * /contacts/{id}:
+ * /contacts:
  *   put:
- *     summary: Update a single contact by ID
- *     parameters:
- *       - in: path
- *         name: id
- *         required: true
- *         schema:
- *           type: string
- *         description: The contact ID
+ *     summary: update a single contact
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               firstName:
+ *                 type: string
+ *               lastName:
+ *                 type: string
+ *               email:
+ *                 type: string
+ *               favoriteColor:
+ *                 type: string
+ *               birthday:
+ *                 type: string
+ *                 format: date
  *     responses:
- *       200:
- *         description: A single contact
- *       404:
- *         description: Contact not found
+ *       201:
+ *         description: Contact updated successfully
+ *       400:
+ *         description: Invalid request
  */
 app.put("/contacts/:id", async (req, res) => {
   try {
