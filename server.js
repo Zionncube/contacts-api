@@ -206,29 +206,33 @@ app.listen(PORT, () => {
  * /contacts/{id}:
  *   put:
  *     summary: update a single contact
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               firstName:
- *                 type: string
- *               lastName:
- *                 type: string
- *               email:
- *                 type: string
- *               favoriteColor:
- *                 type: string
- *               birthday:
- *                 type: string
- *                 format: date
- *     responses:
- *       201:
- *         description: Contact updated successfully
- *       400:
- *         description: Invalid request
+ *    parameters:
+ *     requestid:
+ *       - in: path
+ *         name: id
+ *         requestBody:
+ *            required: true
+ *            content:
+ *               application/json:
+ *                schema:
+ *                   type: object
+ *                      properties:
+ *                          firstName:
+ *                             type: string
+ *                          lastName:
+ *                             type: string
+ *                          email:
+ *                             type: string
+ *                          favoriteColor:
+ *                             type: string
+ *                          birthday:
+ *                             type: string
+ *                          format: date
+ *               responses:
+ *              201:
+ *               description: Contact updated successfully
+ *              400:
+ *               description: Invalid request
  */
 app.put("/contacts/:id", async (req, res) => {
   try {
